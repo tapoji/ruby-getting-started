@@ -31,7 +31,7 @@ class LinebotController < ApplicationController
 				       	type: "text",
 						text: "Aですか？Bですか？"
 				    }
-			        client.reply_message(event["replyToken"], message)
+			        #client.reply_message(event["replyToken"], message)
                     if event.message["text"] =~ /テスト/ then
                         message = [
                            {
