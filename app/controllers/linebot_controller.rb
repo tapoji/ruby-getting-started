@@ -40,11 +40,11 @@ class LinebotController < ApplicationController
 				        value = search("")
 				    	message = {
 				       		type: "text",
-				    		text: value["a"]+"ですか？"+value["b"]+"ですか？"
+				    		text: value["val"]["a"]+"ですか？"+value["val"]["b"]+"ですか？"
 					    }
 			        	client.reply_message(event["replyToken"], message)
 			        end
-			        
+
 				when Line::Bot::Event::MessageType::Location
 					message = {
 						type: "location",
