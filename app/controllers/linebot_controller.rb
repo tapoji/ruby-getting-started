@@ -12,6 +12,14 @@ class LinebotController < ApplicationController
 		}
 	end
 
+    def search(id) do
+    	return [
+		    { "id" => "",  "val" => {"a" =>"屋内", "b" => "屋外" },
+		    { "id" => "a", "val" => "http://" },
+	    ].find{|elem| elem["id"] == id }
+    end
+
+
 	def callback
 		body = request.body.read
 
@@ -27,12 +35,16 @@ class LinebotController < ApplicationController
 			when Line::Bot::Event::Message
 				case event.type
 				when Line::Bot::Event::MessageType::Text
-				    if event.message["text"] =~ /start/
+				    
+				    if event.message["text"] =~ /start/ then
+				        value = search("")
 				    	message = {
 				       		type: "text",
-				    		text: "Aですか？Bですか？"
+				    		text: value["a"]+"ですか？"+value["b"]+"ですか？"
 					    }
 			        	client.reply_message(event["replyToken"], message)
+			        end
+			        
 				when Line::Bot::Event::MessageType::Location
 					message = {
 						type: "location",
