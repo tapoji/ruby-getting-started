@@ -32,13 +32,14 @@ class LinebotController < ApplicationController
 						text: "Aですか？Bですか？"
 				    }
 			        client.reply_message(event["replyToken"], message)
-                if event.message["text"] =~ /テスト/
-                    message = [
-                        {
-                            type: "text",
-                            text: "いいえ、砂丘はありません。"
-                        }
-                   ]
+                    if event.message["text"] =~ /テスト/
+                        message = [
+                            {
+                                type: "text",
+                                text: "いいえ、砂丘はありません。"
+                            }
+                        ]
+                        client.reply_message(event["replyToken"], message)
 				when Line::Bot::Event::MessageType::Location
 					message = {
 						type: "location",
