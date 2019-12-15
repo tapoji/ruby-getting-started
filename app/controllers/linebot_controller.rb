@@ -27,8 +27,7 @@ class LinebotController < ApplicationController
 			when Line::Bot::Event::Message
 				case event.type
 				when Line::Bot::Event::MessageType::Text
-					case event.message["text"]
-					when "start"
+				    if event.message["text"] =~ /start/
 				    	message = {
 				       		type: "text",
 				    		text: "Aですか？Bですか？"
