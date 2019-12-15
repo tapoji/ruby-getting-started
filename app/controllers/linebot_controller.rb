@@ -13,9 +13,8 @@ class LinebotController < ApplicationController
 	end
 
     def search(id)
-    	return [
-		    { "id" => "",  "val" => {"a" =>"屋内", "b" => "屋外" },
-		    { "id" => "a", "val" => "http://" }].find{|elem| elem["id"] == id }
+        data = [{ "id" => "",  "val" => {"a" =>"屋内", "b" => "屋外" }, { "id" => "a", "val" => "http://" }]
+    	return data.find{|elem| elem["id"] == id }
     end
 
 
