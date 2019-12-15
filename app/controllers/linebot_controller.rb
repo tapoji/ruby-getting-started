@@ -12,7 +12,7 @@ class LinebotController < ApplicationController
 		}
 	end
 
-    def search(id) do
+    def search(id) 
     	return [
 		    { "id" => "",  "val" => {"a" =>"屋内", "b" => "屋外" },
 		    { "id" => "a", "val" => "http://" },
