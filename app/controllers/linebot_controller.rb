@@ -42,10 +42,10 @@ class LinebotController < ApplicationController
 				when Line::Bot::Event::MessageType::Text
 				    
 				    if event.message["text"] =~ /start/ then
-				        value = search("")
+				        value = search("")["val"]
 				    	message = {
 				       		type: "text",
-				    		text: value + "ですか？" + value + "ですか？"
+				    		text: value["a"] + "ですか？" + value["b"] + "ですか？"
 				            # text: "hoge"
 					    }
 			        	client.reply_message(event["replyToken"], message)
